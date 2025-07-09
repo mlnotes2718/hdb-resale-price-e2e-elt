@@ -1,0 +1,38 @@
+dbt_ecomm:
+  outputs:
+    prod:
+      dataset: ecomm
+      job_execution_timeout_seconds: 300
+      job_retries: 1
+      keyfile: "{{ env_var('GOOGLE_APPLICATION_CREDENTIALS') }}"
+      location: US
+      method: service-account
+      priority: interactive
+      project: sctp-dsai-data-eng-elt-project
+      threads: 5
+      type: bigquery
+    dev:
+      dataset: ecomm_dev
+      job_execution_timeout_seconds: 300
+      job_retries: 1
+      keyfile: "{{ env_var('GOOGLE_APPLICATION_CREDENTIALS') }}"
+      location: US
+      method: service-account
+      priority: interactive
+      project: sctp-dsai-data-eng-elt-project
+      threads: 3
+      type: bigquery
+    raw:
+      dataset: ecomm_raw
+      job_execution_timeout_seconds: 300
+      job_retries: 1
+      keyfile: "{{ env_var('GOOGLE_APPLICATION_CREDENTIALS') }}"
+      location: US
+      method: service-account
+      priority: interactive
+      project: sctp-dsai-data-eng-elt-project
+      threads: 3
+      type: bigquery
+  target: dev
+
+
