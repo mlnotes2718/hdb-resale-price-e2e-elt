@@ -27,7 +27,7 @@ def main():
     source_folder = config["source_folder"]
     seed_destination = config["seed_folder_path"]
 
-    # Load Data Source from Kaggle
+    # Load Data Source from data.gov.sg
     logging.info("Loading data from data.gov.sg")
     df = download_file(config["DATASET_ID"])
 
@@ -39,7 +39,7 @@ def main():
     # Initialize and run data preparation
     logging.info("Data Cleaning")
     
-    # Cleaning customers file
+    # Cleaning HDB Resale file
     hdb_resale_file_name = config['hdb_resale_file_name']
     cleaned_hdb_resale_file_name = config['cleaned_hdb_resale_file_name'] 
     clean_hdb_resale_from_2017(source_folder, hdb_resale_file_name, seed_destination, cleaned_hdb_resale_file_name)
